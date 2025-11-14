@@ -37,17 +37,17 @@ const cards = [
 ];
 
 export default function RotatingCard({ isDark }: RotatingCardProps) {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIsFlipping(true);
-      // setTimeout(() => {
+      setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % cards.length);
       setIsFlipping(false);
-      // }, 0);
-    }, 820000);
+      }, 300);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
